@@ -20,7 +20,7 @@ void AUE_ZirconTech_POCGameModeBase::BeginPlay()
 {
 	if (IsValid(WidgetClass)) {
 		ScreenPlayer = Cast<UScreenPlayer>(CreateWidget(GetWorld(), WidgetClass));
-		if (ScreenPlayer) {
+		if (ScreenPlayer != nullptr) {
 			ScreenPlayer->AddToViewport();
 		}
 	}

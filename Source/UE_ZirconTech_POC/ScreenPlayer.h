@@ -21,4 +21,8 @@ protected:
 		class UEditableTextBox* AddressTextBox;
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UButton* SendButton;
+	virtual void NativeConstruct() override; 
+
+	UFUNCTION()
+		void SendButtonOnClicked(); 
 };
