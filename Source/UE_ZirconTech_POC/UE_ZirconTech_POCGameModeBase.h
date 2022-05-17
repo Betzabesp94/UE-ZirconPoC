@@ -16,5 +16,11 @@ class UE_ZIRCONTECH_POC_API AUE_ZirconTech_POCGameModeBase : public AGameModeBas
 
 public: 
 	AUE_ZirconTech_POCGameModeBase();
+protected:
+	UPROPERTY(EditAnywhere, Category = "Class Types")
+		TSubclassOf<UUserWidget> WidgetClass;
+	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
+		class UScreenPlayer* ScreenPlayer;
+	virtual void BeginPlay() override; 
 	
 };

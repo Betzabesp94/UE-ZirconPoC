@@ -3,6 +3,8 @@
 
 #include "UE_ZirconTech_POCGameModeBase.h"
 #include "PlayerCharacter.h"
+#include "Blueprint/UserWidget.h"
+#include "ScreenPlayer.h"
 
 AUE_ZirconTech_POCGameModeBase::AUE_ZirconTech_POCGameModeBase()
 {
@@ -11,5 +13,15 @@ AUE_ZirconTech_POCGameModeBase::AUE_ZirconTech_POCGameModeBase()
 	// Chaeck if ClassFinder has find class
 	if (PlayerCharacter_BP.Class) {
 		DefaultPawnClass = PlayerCharacter_BP.Class;
+	}
+}
+
+void AUE_ZirconTech_POCGameModeBase::BeginPlay()
+{
+	if (IsValid(WidgetClass)) {
+		ScreenPlayer = Cast<UScreenPlayer>(CreateWidget(GetWorld(), WidgetClass));
+		if (ScreenPlayer) {
+			ScreenPlayer->AddToViewport();
+		}
 	}
 }
